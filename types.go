@@ -191,7 +191,7 @@ type (
 	}
 
 	// AuthorizeOrderRequest - https://developer.paypal.com/docs/api/orders/v2/#orders_authorize
-	AuthorizeOrderRequest struct {
+		AuthorizeOrderRequest struct {
 		PaymentSource      *PaymentSource     `json:"payment_source,omitempty"`
 		ApplicationContext ApplicationContext `json:"application_context,omitempty"`
 	}
@@ -1033,6 +1033,16 @@ type (
 	Consent struct {
 		Type    string `json:"type"`
 		Granted bool   `json:"granted"`
+	}
+	// Subscription struct
+	Subscription struct {
+		PlanID             string             `json:"plan_id"`
+		StartTime          string          `json:"start_time,omitempty"`
+		Quantity           string             `json:"quantity,omitempty"`
+		ShippingAmount     *ShippingAmount     `json:"shipping_amount,omitempty"`
+		Subscriber         *Subscriber         `json:"subscriber,omitempty"`
+		AutoRenewal        bool               `json:"auto_renewal"`
+		ApplicationContext ApplicationContext `json:"application_context"`
 	}
 )
 
